@@ -14,3 +14,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.tab-one,
+.tab-two {
+  background-color: gold;
+}
+
+.animated {
+  transition: all 3s cubic-bezier(0.4, 0, 0.2, 1);
+}
