@@ -1,0 +1,19 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.btn {
+  font-weight: 400;
+  border-radius: 4px;
+  color: orange;
+  font-size: 2rem;
+}
+
+a,
+.a {
+  color: green;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    color: blue;
+  }
+}

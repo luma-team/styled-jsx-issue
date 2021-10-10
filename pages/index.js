@@ -1,19 +1,47 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { createContext, useState } from "react";
+import { useClient } from "./client";
+
+const SomeContext = createContext();
+
+const ContextProvider = ({ children }) => {
+  const { data } = useClient();
+
+  if (!data) {
+    return "hello";
+  }
+
+  return <SomeContext.Provider value={data}>{children}</SomeContext.Provider>;
+};
 
 export default function Home() {
-  const [tab, setTab] = useState(1);
+  return (
+    <ContextProvider>
+      <Content />
+    </ContextProvider>
+  );
+}
+
+const Content = () => {
+  const [tab, setTab] = useState("Tab 1");
+  const tabs = ["Tab 1", "Tab 2", "Tab 3"];
+
   return (
     <div>
-      <div className={"tab-bar"}>
-        <button onClick={() => setTab(1)}>Green</button>
-        <button onClick={() => setTab(2)}>Blue</button>
-      </div>
+      <div className="tab-bar">
+        {tabs.map((t) => (
+          <button
+            key={t}
+            className={classNames("btn btn-tab btn-sm animated", {
+              selected: t === tab,
+            })}
+            onClick={() => setTab(t)}
+          >
+            hello
+          </button>
+        ))}
 
-      <div className="animated">
-        {tab === 1 && <TabOne />}
-
-        {tab === 2 && <TabTwo />}
+        <input className="form-control" placeholder="YOYOYO" autoFocus />
       </div>
 
       <style jsx>{`
@@ -22,47 +50,32 @@ export default function Home() {
           padding: 1rem;
           display: flex;
 
-          button {
-            margin-right: 1rem;
+          .btn-tab {
+            color: gray;
+            border-radius: 100px;
+            margin-bottom: 0.5rem;
+            margin-right: 0.25rem;
+            font-size: 1rem;
+            font-weight: bold;
+
+            &:hover {
+              color: black;
+              background-color: #0001;
+            }
+
+            &.selected {
+              color: red;
+              background-color: #f003;
+            }
           }
-        }
-      `}</style>
-    </div>
-  );
-}
 
-const TabOne = () => {
-  return (
-    <div>
-      <div className={classNames("tab-one animated", { bigger: true })} />
-
-      <style jsx global>{`
-        .tab-one {
-          width: 100px;
-          height: 100px;
-          opacity: 0.5;
-          background-color: green;
-
-          &.bigger {
-            width: 1000px;
+          .title {
+            color: inherit;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            line-height: 1.2;
           }
-        }
-      `}</style>
-    </div>
-  );
-};
-
-const TabTwo = () => {
-  return (
-    <div>
-      <div className="tab-two" />
-
-      <style jsx global>{`
-        .tab-two {
-          width: 200px;
-          height: 200px;
-          opacity: 0.5;
-          background-color: blue;
         }
       `}</style>
     </div>
