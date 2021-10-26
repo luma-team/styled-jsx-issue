@@ -15,9 +15,10 @@
     "classnames": "^2.3.1",
     "next": "^12.0.0",
     "prettier": "^2.4.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "18.0.0-alpha-4298ddbc5-20211023",
+    "react-dom": "18.0.0-alpha-4298ddbc5-20211023",
     "sass": "^1.42.1",
+    "styled-jsx": "5.0.0-beta.3",
     "swr": "^1.0.1"
   },
   "devDependencies": {
