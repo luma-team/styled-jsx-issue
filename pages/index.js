@@ -55,33 +55,33 @@ const Content = () => {
           margin-bottom: 20px;
           padding: 1rem;
           display: flex;
+        }
+        
+        .btn-tab {
+          color: gray;
+          border-radius: 100px;
+          margin-bottom: 0.5rem;
+          margin-right: 0.25rem;
+          font-size: 1rem;
+          font-weight: bold;
+        }
 
-          .btn-tab {
-            color: gray;
-            border-radius: 100px;
-            margin-bottom: 0.5rem;
-            margin-right: 0.25rem;
-            font-size: 1rem;
-            font-weight: bold;
+        .btn-tab:hover {
+          color: black;
+          background-color: #0001;
+        }
 
-            &:hover {
-              color: black;
-              background-color: #0001;
-            }
+        .btn-tab.selected {
+          color: red;
+          background-color: #f003;
+        }
 
-            &.selected {
-              color: red;
-              background-color: #f003;
-            }
-          }
-
-          .title {
-            color: inherit;
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            line-height: 1.2;
-          }
+        .title {
+          color: inherit;
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+          font-weight: 500;
+          line-height: 1.2;
         }
       `}</style>
     </div>
