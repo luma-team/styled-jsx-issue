@@ -1,11 +1,17 @@
 import classNames from "classnames";
-import { createContext, useState } from "react";
-import { useClient } from "./client";
+import {createContext, useEffect, useState} from "react";
 
 const SomeContext = createContext();
 
 const ContextProvider = ({ children }) => {
-  const { data } = useClient();
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setData(1)
+
+    }, 250)
+  }, [])
 
   if (!data) {
     return "hello";
