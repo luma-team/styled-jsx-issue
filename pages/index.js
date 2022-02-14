@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { createContext, useState } from "react";
-import { useClient } from "./client";
+import { useClient } from "../client";
 
 const SomeContext = createContext();
 
